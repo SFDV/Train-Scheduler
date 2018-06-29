@@ -18,7 +18,7 @@ var config = {
   
   
   // FUNCTIONS + EVENTS
-  
+
   $("#addTrain").on("click", function() {
   
     trainName = $('#nameInput').val().trim();
@@ -42,7 +42,7 @@ var config = {
   });
   
   
-  // MAIN PROCESS + INITIAL CODE
+  
   database.ref().on("child_added", function(snapshot) {
     console.log(snapshot.val());
   
@@ -53,9 +53,9 @@ var config = {
     frequency = snapshot.val().frequency;
   
   
-    // moment.js methods for time calls and calculations. lines 57 to 65 were accomplished with Tenor's assistance. I didn't update the current time. It looks like "Minutes Away" may be larger than the frequency interval :(
+   
     var firstTrainMoment = moment(firstTrainTime, 'HH:mm');
-    var nowMoment = moment(); // creates a moment object of current date and time and storing it in a variable whenever the user click the submit button
+    var nowMoment = moment(); 
   
     var minutesSinceFirstArrival = nowMoment.diff(firstTrainMoment, 'minutes');
     var minutesSinceLastArrival = minutesSinceFirstArrival % frequency;
@@ -83,7 +83,7 @@ var config = {
   
     }, function (errorObject) {
   
-    // In case of error this will print the error
+    
       console.log("The read failed: " + errorObject.code);
   
   });
